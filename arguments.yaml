@@ -1,0 +1,6 @@
+description: Snasic, a Python BASIC interpreter
+arguments:
+ - name: filename
+   required: False
+   type: bare
+   help: the BASIC file to load
