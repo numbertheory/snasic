@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 from snasic.config import Config
 from curses import wrapper
-from snasic.controls import arrow_keys, scroll, quit
+from snasic.controls import arrow_keys, scroll
 from snasic.screen import Screen
 from snasic.load_file import load_structured_basic_file
 from snasic.parse import run_command
 import curses
 import toml
-import time
 
 args = Config("arguments.yaml")
 
