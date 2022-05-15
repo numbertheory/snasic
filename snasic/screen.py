@@ -11,7 +11,7 @@ class Screen:
         self.visible = [''] * self.rows
         self.args = args
         self.debug = self.args.debug
-        self.file_list = self.args.list
+        self.filename = content
         self.row_limit = self.set_row_limit()
         self.scroll_offset = 0
         if self.args.list:
@@ -51,13 +51,16 @@ class Screen:
     def load_scrolling_content(self):
         lines = self.content.split('\n')
         self.row_limit = self.set_row_limit()
+        if len(lines[self.scroll_offset:]) < self.rows:
+            for i in range(0, self.rows - len(lines[self.scroll_offset:])):
+                lines.append("")
         for i, line in enumerate(lines[self.scroll_offset:]):
             if i < self.row_limit:
                 try:
                     if self.debug:
-                        line_number = str(i).zfill(3)
+                        line_number = str(i+self.scroll_offset+1).zfill(3)
                         self.screen.addstr(i, 0,  f"{line_number}",
-                                           curses.A_REVERSE)
+                                           curses.A_DIM)
                         self.screen.addstr(i, 4, line)
                     else:
                         self.screen.addstr(i, 0, line)
@@ -65,7 +68,11 @@ class Screen:
                 except curses.error:
                     pass
         if self.debug:
-            self.printscr(self.rows - 1, 0, f"{self.scroll_offset}")
+            debug_text = f"Scr:{self.scroll_offset} " \
+                         f"File: {self.filename}".ljust(self.cols)
+            self.printscr(self.rows - 1, 0,
+                          debug_text,
+                          curses.A_REVERSE)
 
     def getkey(self):
         return self.screen.getkey()

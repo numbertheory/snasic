@@ -25,3 +25,10 @@ arguments:
      - e
      - explore
    help: run interactive cursor program
+ - name: version
+   type: boolean
+   required: False
+   flags:
+     - v
+     - version
+   help: show version and quit

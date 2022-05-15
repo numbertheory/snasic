@@ -10,3 +10,4 @@ class Config:
         self.list = collect.Arguments(self.args).value("list")
         self.debug = collect.Arguments(self.args).value("debug")
         self.explore = collect.Arguments(self.args).value("explore")
+        self.version = collect.Arguments(self.args).value("version")

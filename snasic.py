@@ -4,8 +4,16 @@ from curses import wrapper
 from snasic.controls import arrow_keys, scroll
 from snasic.screen import Screen
 import curses
+import toml
 
 args = Config("arguments.yaml")
+
+if (args.version):
+    project_info = toml.load("pyproject.toml")
+    print("{} - {}".format(
+        project_info["tool"]["poetry"]["name"],
+        project_info["tool"]["poetry"]["version"]))
+    exit(0)
 
 
 def main(stdscr):
