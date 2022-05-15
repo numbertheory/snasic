@@ -5,16 +5,15 @@ from snasic.load_file import load_basic_file
 
 
 class Screen:
-    def __init__(self, stdscr, debug, content=None):
+    def __init__(self, stdscr, args, content=None):
         self.screen = stdscr
         self.rows, self.cols = self.screen.getmaxyx()
         self.visible = [''] * self.rows
-        self.debug = debug
-        if self.debug:
-            self.row_limit = self.rows - 3
-        else:
-            self.row_limit = self.rows
-        if content:
+        self.args = args
+        self.debug = self.args.debug
+        self.file_list = self.args.list
+        self.row_limit = self.set_row_limit()
+        if self.args.list:
             self.content = load_basic_file(content)
         else:
             self.content = None
@@ -25,19 +24,28 @@ class Screen:
         except curses.error:
             pass
 
+    def set_row_limit(self):
+        self.rows, self.cols = self.screen.getmaxyx()
+        if self.debug:
+            return self.rows - 1
+        else:
+            return self.rows
+
     def clear(self):
         self.screen.clear()
 
     def refresh(self):
         self.rows, self.cols = self.screen.getmaxyx()
+        if self.content:
+            self.load_scrolling_content()
         self.screen.refresh()
 
     def getmaxyx(self):
         return self.screen.getmaxyx()
 
     def load_scrolling_content(self):
-        self.refresh()
         lines = self.content.split('\n')
+        self.row_limit = self.set_row_limit()
         for i, line in enumerate(lines):
             if i < self.row_limit:
                 try:

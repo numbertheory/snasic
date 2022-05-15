@@ -10,13 +10,13 @@ args = Config("arguments.yaml")
 
 def main(stdscr):
     x, y = 0, 0
-    screen = Screen(stdscr, args.debug, args.filename)
+    screen = Screen(stdscr, args, content=args.filename)
     if (args.list and args.filename):
         while True:
             screen.clear()
             screen.load_scrolling_content()
-            screen.refresh()
             scroll(screen)
+            screen.refresh()
 
     elif (args.filename):
         while True:
