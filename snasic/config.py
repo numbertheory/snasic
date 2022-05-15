@@ -7,3 +7,4 @@ class Config:
         path = os.path.abspath(os.path.join(os.getcwd(), os.pardir))
         self.args = path + '/snasic/' + args_file
         self.filename = collect.Arguments(self.args).value("filename")
+        self.list = collect.Arguments(self.args).value("list")

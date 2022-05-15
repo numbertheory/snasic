@@ -2,16 +2,20 @@
 
 Python BASIC interpreter. There are other ones, this is mine.
 
-# Install
+## Install
 
 Use python-poetry to install the requirements.
 
 `poetry install`
 
-# Run
+## Run a BASIC program
 
-`./snasic.py`
+`./snasic.py example.bas`
 
-# Commands
+## Snasic command line arguments
+
+- `--list`: List the file instead of running the program
+
+## BASIC language commands
 
 TBD

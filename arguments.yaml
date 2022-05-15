@@ -3,4 +3,11 @@ arguments:
  - name: filename
    required: False
    type: bare
-   help: the BASIC file to load
+   help: the BASIC file to load and run
+ - name: list
+   type: boolean
+   required: False
+   flags:
+     - l
+     - list
+   help: show the source code for the filename
