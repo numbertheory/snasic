@@ -1,7 +1,7 @@
 10 PRINT "Hello World"
 20 PRINT "Line 20"
-30
-40
+30 PRINT "Here's another line"
+40 PRINT "You can print emojis 🤔"
 50
 60
 70

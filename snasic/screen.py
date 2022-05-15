@@ -18,6 +18,8 @@ class Screen:
             self.content = load_basic_file(content)
         else:
             self.content = None
+        self.cursor_x = 0
+        self.cursor_y = 0
 
     def printscr(self, y, x, content, format=None):
         try:

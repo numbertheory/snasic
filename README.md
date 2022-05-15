@@ -24,4 +24,8 @@ Use python-poetry to install the requirements.
 
 ## BASIC language commands
 
-TBD
+- PRINT
+  Print to screen
+  ```
+  PRINT "Hello World"
+  ```
