@@ -31,3 +31,13 @@ def quit(screen):
         exit(0)
     else:
         return key
+
+
+def scroll(screen, window=[]):
+    key = screen.getkey()
+    if key == "KEY_UP":
+        pass
+    elif key == "KEY_DOWN":
+        pass
+    elif key.lower() == "q":
+        exit(0)

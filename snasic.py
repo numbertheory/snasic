@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 from snasic.config import Config
 from curses import wrapper
-from snasic.controls import arrow_keys
+from snasic.controls import arrow_keys, scroll
 from snasic.screen import Screen
-from snasic.load_file import load_basic_file
 import curses
 
 args = Config("arguments.yaml")
@@ -11,14 +10,13 @@ args = Config("arguments.yaml")
 
 def main(stdscr):
     x, y = 0, 0
-    screen = Screen(stdscr)
+    screen = Screen(stdscr, args.debug, args.filename)
     if (args.list and args.filename):
-        file_text = load_basic_file(args.filename)
         while True:
             screen.clear()
-            screen.load_scrolling_content(file_text)
+            screen.load_scrolling_content()
             screen.refresh()
-            screen.quit()
+            scroll(screen)
 
     elif (args.filename):
         while True:
