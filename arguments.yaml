@@ -11,3 +11,10 @@ arguments:
      - l
      - list
    help: show the source code for the filename
+ - name: debug
+   type: boolean
+   required: False
+   flags:
+     - d
+     - debug
+   help: show info bar on screen

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-def controls(stdscr, y, x, window=[]):
-    key = stdscr.getkey()
+def controls(screen, y, x, window=[]):
+    key = screen.getkey()
     if key == "KEY_LEFT":
         if x > 0:
             x -= 1
@@ -14,6 +14,6 @@ def controls(stdscr, y, x, window=[]):
     elif key == "KEY_DOWN":
         if y < (window[0] - 1):
             y += 1
-    elif key == "Q":
+    elif key.lower() == "q":
         exit(0)
     return y, x
