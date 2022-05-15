@@ -36,8 +36,10 @@ def quit(screen):
 def scroll(screen, window=[]):
     key = screen.getkey()
     if key == "KEY_UP":
-        pass
+        if screen.scroll_offset > 0:
+            screen.scroll_offset -= 1
     elif key == "KEY_DOWN":
-        pass
+        if screen.row_limit > screen.scroll_offset:
+            screen.scroll_offset += 1
     elif key.lower() == "q":
         exit(0)

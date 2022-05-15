@@ -13,12 +13,13 @@ class Screen:
         self.debug = self.args.debug
         self.file_list = self.args.list
         self.row_limit = self.set_row_limit()
+        self.scroll_offset = 0
         if self.args.list:
             self.content = load_basic_file(content)
         else:
             self.content = None
 
-    def printscr(self, y, x, stdscr, content):
+    def printscr(self, y, x, content):
         try:
             self.screen.addstr(y, x, content)
         except curses.error:
@@ -46,12 +47,14 @@ class Screen:
     def load_scrolling_content(self):
         lines = self.content.split('\n')
         self.row_limit = self.set_row_limit()
-        for i, line in enumerate(lines):
+        for i, line in enumerate(lines[self.scroll_offset:]):
             if i < self.row_limit:
                 try:
                     if self.debug:
                         line_number = str(i).zfill(3)
-                        self.screen.addstr(i, 0, f"{line_number} " + line)
+                        self.screen.addstr(i, 0,  f"{line_number}",
+                                           curses.A_REVERSE)
+                        self.screen.addstr(i, 4, line)
                     else:
                         self.screen.addstr(i, 0, line)
 

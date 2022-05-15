@@ -18,12 +18,16 @@ def main(stdscr):
             scroll(screen)
             screen.refresh()
 
-    elif (args.filename):
+    elif (args.explore):
         while True:
             curses.curs_set(False)
             screen.clear()
             screen.refresh()
-            screen.printscr(x, y, stdscr, "X")
+            screen.printscr(x, y, "X")
+            screen.refresh()
+            if screen.debug:
+                screen.printscr(screen.rows - 1, 0, f"(x, y): {x},{y}")
+                screen.refresh()
             screen.refresh()
             x, y = arrow_keys(screen, x, y, window=[screen.rows, screen.cols])
 

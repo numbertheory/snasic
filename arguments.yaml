@@ -18,3 +18,10 @@ arguments:
      - d
      - debug
    help: show info bar on screen
+ - name: explore
+   type: boolean
+   required: False
+   flags:
+     - e
+     - explore
+   help: run interactive cursor program
