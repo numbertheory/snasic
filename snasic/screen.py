@@ -19,9 +19,12 @@ class Screen:
         else:
             self.content = None
 
-    def printscr(self, y, x, content):
+    def printscr(self, y, x, content, format=None):
         try:
-            self.screen.addstr(y, x, content)
+            if format:
+                self.screen.addstr(y, x, content, format)
+            else:
+                self.screen.addstr(y, x, content)
         except curses.error:
             pass
 
@@ -39,6 +42,7 @@ class Screen:
         self.rows, self.cols = self.screen.getmaxyx()
         if self.content:
             self.load_scrolling_content()
+            self.screen.refresh()
         self.screen.refresh()
 
     def getmaxyx(self):
@@ -60,6 +64,8 @@ class Screen:
 
                 except curses.error:
                     pass
+        if self.debug:
+            self.printscr(self.rows - 1, 0, f"{self.scroll_offset}")
 
     def getkey(self):
         return self.screen.getkey()

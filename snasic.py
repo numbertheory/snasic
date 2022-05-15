@@ -26,7 +26,8 @@ def main(stdscr):
             screen.printscr(x, y, "X")
             screen.refresh()
             if screen.debug:
-                screen.printscr(screen.rows - 1, 0, f"(x, y): {x},{y}")
+                screen.printscr(screen.rows - 1, 0, f"(x, y): {x},{y}",
+                                curses.A_REVERSE)
                 screen.refresh()
             screen.refresh()
             x, y = arrow_keys(screen, x, y, window=[screen.rows, screen.cols])

@@ -39,7 +39,7 @@ def scroll(screen, window=[]):
         if screen.scroll_offset > 0:
             screen.scroll_offset -= 1
     elif key == "KEY_DOWN":
-        if screen.row_limit > screen.scroll_offset:
+        if screen.scroll_offset < (len(screen.content.split('\n')) - 1):
             screen.scroll_offset += 1
     elif key.lower() == "q":
         exit(0)
