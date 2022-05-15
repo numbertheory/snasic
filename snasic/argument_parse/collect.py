@@ -39,7 +39,8 @@ class Arguments:
                     type=type_of_argument,
                     nargs=nargs_translate(arg.get("multiple")),
                     required=arg.get("required"),
-                    default=arg.get("default")
+                    default=arg.get("default"),
+                    help=arg.get("help")
                 )
             if arg.get("type") == "boolean":
                 self.parser.add_argument(
@@ -47,14 +48,19 @@ class Arguments:
                     "--{}".format(arg.get("flags")[1]),
                     dest=arg.get("name"),
                     action=store_translate(arg.get("default")),
-                    required=arg.get("required")
+                    required=arg.get("required"),
+                    help=arg.get("help")
                 )
             if arg.get("type") == "bare":
                 if arg.get("required"):
                     nargs_value = 1
                 else:
                     nargs_value = "?"
-                self.parser.add_argument(arg.get("name"), nargs=nargs_value)
+                self.parser.add_argument(
+                    arg.get("name"),
+                    nargs=nargs_value,
+                    help=arg.get("help")
+                )
 
     def value(self, dest):
         try:
