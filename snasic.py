@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 from snasic.config import Config
 from curses import wrapper
-from snasic.arrow_keys import controls
-from snasic.app_control import snasic_break
+from snasic.controls import arrow_keys
 from snasic.screen import Screen
 from snasic.load_file import load_basic_file
 import curses
@@ -19,7 +18,7 @@ def main(stdscr):
             screen.clear()
             screen.load_scrolling_content(file_text)
             screen.refresh()
-            snasic_break(stdscr)
+            screen.quit()
 
     elif (args.filename):
         while True:
@@ -28,7 +27,7 @@ def main(stdscr):
             screen.refresh()
             screen.printscr(x, y, stdscr, "X")
             screen.refresh()
-            x, y = controls(screen, x, y, window=[screen.rows, screen.cols])
+            x, y = arrow_keys(screen, x, y, window=[screen.rows, screen.cols])
 
 
 if __name__ == '__main__':

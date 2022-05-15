@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
+import curses
 
-def controls(screen, y, x, window=[]):
+
+def arrow_keys(screen, y, x, window=[]):
     key = screen.getkey()
     if key == "KEY_LEFT":
         if x > 0:
@@ -17,3 +19,15 @@ def controls(screen, y, x, window=[]):
     elif key.lower() == "q":
         exit(0)
     return y, x
+
+
+def quit(screen):
+    try:
+        key = screen.getkey()
+    except curses.error:
+        key = None
+        return key
+    if key.lower() == "q":
+        exit(0)
+    else:
+        return key

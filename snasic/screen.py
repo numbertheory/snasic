@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import curses
+from snasic.controls import quit
 
 
 class Screen:
@@ -25,7 +26,12 @@ class Screen:
         return self.screen.getmaxyx()
 
     def load_scrolling_content(self, content):
-        self.screen.addstr(0, 0, content)
+        lines = content.split('\n')
+        for i, line in enumerate(lines):
+            self.screen.addstr(i, 0, line)
 
     def getkey(self):
         return self.screen.getkey()
+
+    def quit(self):
+        return quit(self.screen)
