@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 import curses
-from snasic.controls import quit
-from snasic.load_file import load_basic_file
-from snasic.basic_functions import color_palette
+from snasic_lib.controls import quit
+from snasic_lib.load_file import load_basic_file
+from snasic_lib.basic_functions import color_palette
 
 
 class Screen:

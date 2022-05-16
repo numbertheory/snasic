@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 import curses
-from snasic.screen import Screen
-from snasic.load_file import load_structured_basic_file
-from snasic.parse import run_command
+from snasic_lib.screen import Screen
+from snasic_lib.load_file import load_structured_basic_file
+from snasic_lib.parse import run_command
 
 
 def start_program(stdscr, args):

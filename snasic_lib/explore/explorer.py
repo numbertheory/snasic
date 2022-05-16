@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import curses
-from snasic.screen import Screen
-from snasic.controls import arrow_keys
+from snasic_lib.screen import Screen
+from snasic_lib.controls import arrow_keys
 
 
 def run(stdscr, args):

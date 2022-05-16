@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-from snasic.screen import Screen
-from snasic.controls import scroll
+from snasic_lib.screen import Screen
+from snasic_lib.controls import scroll
 
 
 def load(stdscr, args):

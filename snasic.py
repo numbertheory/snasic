@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-from snasic.config import Config
+from snasic_lib.config import Config
 from curses import wrapper
-from snasic.file_viewer import file_viewer
-from snasic.run_basic_program import start_program
-from snasic.python_debug import python_debugger
-import snasic.explore.explorer as explorer
+from snasic_lib.file_viewer import file_viewer
+from snasic_lib.run_basic_program import start_program
+from snasic_lib.python_debug import python_debugger
+import snasic_lib.explore.explorer as explorer
 import toml
 
 args = Config("arguments.yaml")

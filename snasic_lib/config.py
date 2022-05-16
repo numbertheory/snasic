@@ -1,5 +1,5 @@
 import os
-from snasic.argument_parse import collect
+from snasic_lib.argument_parse import collect
 
 
 class Config:

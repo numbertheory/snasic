@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import re
-import snasic.basic_functions.basic_keywords as lang
+import snasic_lib.basic_functions.basic_keywords as lang
 
 
 def grab_command(line):

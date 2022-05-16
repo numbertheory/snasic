@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "snasic"
-version = "0.2.0"
+version = "0.3.0"
 description = "A Python BASIC Interpreter"
 authors = ["JP Etcheber <jetcheber@gmail.com>"]
 license = "GNU General Public License v3.0"
