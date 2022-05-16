@@ -18,7 +18,7 @@ def start_program(stdscr, args):
                 run_command(screen, line["command"])
                 screen.refresh()
         screen.printscr(screen.rows - 1, 0,
-                        screen.end_message,
+                        screen.end_message.ljust(screen.cols),
                         curses.A_REVERSE)
         screen.refresh()
         if screen.getkey():
