@@ -14,13 +14,12 @@ Use python-poetry to install the requirements.
 
 ## Snasic command line arguments
 
-- `--list`: List the file instead of running the program
-- `--explore`: Launch the cursor explorer program
+- `--list`: List the file instead of running the program. Use the `Q` key to quit.
+- `--explore`: Launch the cursor explorer program. Use the `Q` key to quit.
 - `--debug`: Show debug information.
-  - Line numbers, scroll offset and filename are shown when listing a program.
-  - X, Y coordinates are shown when using `--explore`
-  - After successfully running a program, the screen will show the final values python stored. Used for
-    debugging snasic itself, not BASIC programs.
+  - Line numbers, scroll offset and filename are shown when listing a program. Python debugger is run after quitting.
+  - X, Y coordinates are shown when using `--explore`. Python debugger is run after quitting.
+  - After successfully running a program, the screen will show the final values python stored. Used for debugging snasic itself, not BASIC programs.
 - `--help`: show help and exit
 - `--version`: show version and quit
 

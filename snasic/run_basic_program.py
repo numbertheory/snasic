@@ -8,6 +8,7 @@ from snasic.parse import run_command
 def start_program(stdscr, args):
     curses.endwin()
     screen = Screen(stdscr, args)
+    curses.use_default_colors()
     basic_script, numbered_lines = load_structured_basic_file(
         args.filename
     )
