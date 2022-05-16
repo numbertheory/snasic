@@ -9,7 +9,6 @@ class Screen:
     def __init__(self, stdscr, args, content=None):
         self.screen = stdscr
         self.end_message = "Program Ended - Press any key to exit."
-        self.last_key_pressed = None
         self.rows, self.cols = self.screen.getmaxyx()
         self.visible = [''] * self.rows
         self.args = args
@@ -29,12 +28,22 @@ class Screen:
         self.active_fg = "7"
 
     def printscr(self, y, x, content, format=None):
+        if int(self.active_fg) >= 16:
+            self.active_fg = str(int(self.active_fg) - 16)
+            self.active_color = "{},{}".format(self.active_fg, self.active_bg)
+            pair = self.colors.get(self.active_color)
+            color = curses.color_pair(pair)
+            format = curses.A_BLINK
+        else:
+            pair = self.colors.get(self.active_color)
+            color = curses.color_pair(pair)
+
         try:
             if format:
-                self.screen.addstr(y, x, content, format)
+                self.screen.addstr(y, x, content, color | format)
             else:
                 pair = self.colors.get(self.active_color)
-                self.screen.addstr(y, x, content, curses.color_pair(pair))
+                self.screen.addstr(y, x, content, color)
         except curses.error:
             pass
 

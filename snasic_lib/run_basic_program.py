@@ -18,11 +18,12 @@ def start_program(stdscr, args):
                (line["command"] is not None)):
                 run_command(screen, line["command"])
                 screen.refresh()
+        screen.active_color = "7,0"
+        screen.active_bg = "7"
+        screen.avtive_fg = "0"
         screen.printscr(screen.rows - 1, 0,
                         screen.end_message.ljust(screen.cols),
                         curses.A_REVERSE)
-        screen.refresh()
         if screen.getkey():
-            screen.last_key_pressed = screen.getkey()
             break
     return screen
