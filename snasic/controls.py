@@ -17,7 +17,7 @@ def arrow_keys(screen, y, x, window=[]):
         if y < (window[0] - 1):
             y += 1
     elif key.lower() == "q":
-        exit(0)
+        return None, None
     return y, x
 
 
@@ -38,8 +38,10 @@ def scroll(screen, window=[]):
     if key == "KEY_UP":
         if screen.scroll_offset > 0:
             screen.scroll_offset -= 1
+        return "up"
     elif key == "KEY_DOWN":
         if screen.scroll_offset < (len(screen.content.split('\n')) - 1):
             screen.scroll_offset += 1
+        return "down"
     elif key.lower() == "q":
-        exit(0)
+        return None

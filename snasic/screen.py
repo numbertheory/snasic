@@ -7,6 +7,8 @@ from snasic.load_file import load_basic_file
 class Screen:
     def __init__(self, stdscr, args, content=None):
         self.screen = stdscr
+        self.end_message = "Program Ended - Press any key to exit."
+        self.last_key_pressed = None
         self.rows, self.cols = self.screen.getmaxyx()
         self.visible = [''] * self.rows
         self.args = args
