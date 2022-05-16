@@ -43,19 +43,20 @@ Use python-poetry to install the requirements.
   CLS
   ```
  - COLOR [fg, bg]
-   Sets the color for the text for the next PRINT commands. See table for color options. Use a comma immediately after the color keyword to set the background color only.
+   Sets the color for the text for the next PRINT commands. See table for color options. Use a comma immediately after the color keyword to set the background color only. Add 16 to the normal color value for foreground text color to set the text to blink. Blinking background is not available.
    ```
    COLOR 1, 2 (set foreground and background colors)
    COLOR 2 (set foreground color only)
    COLOR, 3 (set background color only)
    ```
-   | Color Value  | Color |
-   | ------------- | ------------- |
-   | 0  | BLACK  |
-   | 1  | RED  |
-   | 2  | GREEN  |
-   | 3  | YELLOW  |
-   | 4  | BLUE  |
-   | 5  | MAGENTA  |
-   | 6  | CYAN  |
-   | 7  | WHITE  |
+   | Color Value  | Color   | Blink Value |
+   | -------------| ------- | ----------- |
+   | 0            | BLACK   | 16          |
+   | 1            | RED     | 17          |
+   | 2            | GREEN   | 18          |
+   | 3            | YELLOW  | 19          |
+   | 4            | BLUE    | 20          |
+   | 5            | MAGENTA | 21          |
+   | 6            | CYAN    | 22          |
+   | 7            | WHITE   | 23          |
+   | 8            | GREY    | 24          |
