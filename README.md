@@ -31,3 +31,15 @@ Use python-poetry to install the requirements.
   ```
   PRINT "Hello World"
   ```
+- SLEEP
+  Pause the execution of a program for a number of seconds. Use SLEEP by itself to
+  wait for a key to be pressed.
+  ```
+  SLEEP 10
+  SLEEP
+  ```
+- CLS
+  Clears the screen, and resets the cursor to 0, 0 (top-left of the screen). `CLS` is not necessary for the first command, as all output is in a [Python curses](https://docs.python.org/3/library/curses.html) window to prevent breaking the user's terminal.
+  ```
+  CLS
+  ```

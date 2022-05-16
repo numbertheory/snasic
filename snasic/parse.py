@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import re
+import time
 
 
 def run_command(screen, line):
@@ -13,3 +14,20 @@ def run_command(screen, line):
             print(line)
             raise
         screen.cursor_y += 1
+    if line.lower().startswith("sleep"):
+        try:
+            sleep_amount = re.split("sleep", line, maxsplit=1,
+                                    flags=re.IGNORECASE)[1].strip()
+            if sleep_amount.isdigit():
+                time.sleep(int(sleep_amount))
+            else:
+                while True:
+                    if screen.getkey():
+                        break
+        except IndexError:
+            print(line)
+            raise
+    if line.lower().startswith("cls"):
+        screen.clear()
+        screen.cursor_y = 0
+        screen.cursor_x = 0
