@@ -83,3 +83,6 @@ class Screen:
 
     def quit(self):
         return quit(self.screen)
+
+    def use_default_colors(self):
+        curses.use_default_colors()

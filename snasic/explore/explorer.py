@@ -13,7 +13,7 @@ def run(stdscr, args):
         screen.refresh()
         screen.printscr(x, y, "X")
         if screen.debug:
-            screen.printscr(screen.rows - 1, 0, f"(x, y): {screen.debug}",
+            screen.printscr(screen.rows - 1, 0, f"(x, y): {x}, {y}",
                             curses.A_REVERSE)
             screen.refresh()
         screen.refresh()
