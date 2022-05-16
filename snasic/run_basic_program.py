@@ -9,8 +9,6 @@ def start_program(stdscr, args):
     curses.endwin()
     screen = Screen(stdscr, args)
     screen.use_default_colors()
-    curses.init_pair(1, curses.COLOR_WHITE, curses.COLOR_BLUE)
-    screen.screen.bkgd(' ', curses.color_pair(1) | curses.A_BOLD)
     basic_script, numbered_lines = load_structured_basic_file(
         args.filename
     )

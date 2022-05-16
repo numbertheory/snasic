@@ -22,13 +22,14 @@ class Screen:
             self.content = None
         self.cursor_x = 0
         self.cursor_y = 0
+        curses.init_pair(1, curses.COLOR_WHITE, curses.COLOR_BLACK)
 
     def printscr(self, y, x, content, format=None):
         try:
             if format:
                 self.screen.addstr(y, x, content, format)
             else:
-                self.screen.addstr(y, x, content)
+                self.screen.addstr(y, x, content, curses.color_pair(1))
         except curses.error:
             pass
 

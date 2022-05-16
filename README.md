@@ -42,3 +42,20 @@ Use python-poetry to install the requirements.
   ```
   CLS
   ```
+ - COLOR [fg, bg]
+   Sets the color for the text for the next PRINT commands. See table for color options. Use a comma immediately after the color keyword to set the background color only.
+   ```
+   COLOR 1, 2 (set foreground and background colors)
+   COLOR 2 (set foreground color only)
+   COLOR, 3 (set background color only)
+   ```
+   | Color Value  | Color |
+   | ------------- | ------------- |
+   | 0  | BLACK  |
+   | 1  | RED  |
+   | 2  | GREEN  |
+   | 3  | YELLOW  |
+   | 4  | BLUE  |
+   | 5  | MAGENTA  |
+   | 6  | CYAN  |
+   | 7  | WHITE  |

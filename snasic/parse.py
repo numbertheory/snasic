@@ -14,4 +14,7 @@ def run_command(screen, line):
     # Don't shadow Python's print function
     if command == "print":
         command = "print_to_screen"
+    # Support for the COLOR command to set a background only
+    if command == "color,":
+        command = "color"
     getattr(lang, command)(screen, line)

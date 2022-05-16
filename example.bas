@@ -2,6 +2,7 @@ PRINT "Hello World"
 PRINT "Line 20"
 SLEEP
 CLS
+COLOR 3, 2
 30 PRINT "Here's another line"
 40 PRINT "       You can print emojis 🤔"
 50
