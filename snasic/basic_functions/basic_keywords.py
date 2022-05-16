@@ -43,12 +43,18 @@ def color(screen, line):
         text_color = re.split("color", line, maxsplit=1,
                               flags=re.IGNORECASE)[1].strip()
         if text_color.startswith(","):
-            curses.init_pair(1, -1, int(text_color.replace(", ", "")))
+            new_bg = text_color.replace(", ", "")
+            screen.active_color = "{},{}".format(screen.active_fg, new_bg)
+            screen.active_bg = new_bg
         elif "," in text_color:
-            use_color = [int(x) for x in text_color.split(",")]
-            curses.init_pair(1, use_color[0], use_color[1])
+            use_color = [x.strip() for x in text_color.split(",")]
+            screen.active_color = ",".join(use_color)
+            screen.active_fg = use_color[0]
+            screen.active_bg = use_color[1]
         else:
-            curses.init_pair(1, int(text_color), -1)
+            new_fg = text_color.strip()
+            screen.active_color = "{},{}".format(new_fg, screen.active_bg)
+            screen.active_fg = new_fg
     except IndexError:
         print(line)
         raise

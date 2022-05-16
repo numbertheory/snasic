@@ -2,6 +2,7 @@
 import curses
 from snasic.controls import quit
 from snasic.load_file import load_basic_file
+from snasic.basic_functions import color_palette
 
 
 class Screen:
@@ -22,14 +23,18 @@ class Screen:
             self.content = None
         self.cursor_x = 0
         self.cursor_y = 0
-        curses.init_pair(1, curses.COLOR_WHITE, curses.COLOR_BLACK)
+        self.colors = color_palette.initialize_color_pairs()
+        self.active_color = "7,0"
+        self.active_bg = "0"
+        self.active_fg = "7"
 
     def printscr(self, y, x, content, format=None):
         try:
             if format:
                 self.screen.addstr(y, x, content, format)
             else:
-                self.screen.addstr(y, x, content, curses.color_pair(1))
+                pair = self.colors.get(self.active_color)
+                self.screen.addstr(y, x, content, curses.color_pair(pair))
         except curses.error:
             pass
 
