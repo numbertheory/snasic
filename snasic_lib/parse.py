@@ -8,7 +8,7 @@ def grab_command(line):
                     flags=re.IGNORECASE)[0].lower()
 
 
-def run_command(screen, line):
+def run_command(screen, line, pad=None):
     command = grab_command(line)
 
     # Don't shadow Python's print function
