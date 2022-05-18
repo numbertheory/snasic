@@ -19,7 +19,7 @@ class Window:
         self.end_message = "Program Ended - Press any key to exit."
         self.colors = color_palette.initialize_color_pairs()
 
-    def addstr(self, content):
+    def addstr(self, content, format=curses.A_NORMAL):
         if int(self.active_fg) >= 16:
             self.active_fg = str(int(self.active_fg) - 16)
             self.active_color = "{},{}".format(self.active_fg, self.active_bg)
@@ -29,17 +29,16 @@ class Window:
         else:
             pair = self.colors.get(self.active_color)
             color = curses.color_pair(pair)
-            format = None
 
-        if format:
-            self.window.addstr(self.cursor_x, 0, content, color | format)
-        else:
-            self.window.addstr(self.cursor_x, 0, content, color)
+        self.window.addstr(self.cursor_x, self.cursor_y,
+                           content, color | format)
         self.window.refresh()
         if self.screen.rows - 1 > self.cursor_x:
             self.cursor_x += 1
+            self.cursor_y = 0
         else:
             self.window.scroll(1)
+            self.cursor_y = 0
 
     def end_program_message(self):
         self.active_bg = "0"
@@ -52,3 +51,6 @@ class Window:
     def clear(self):
         self.screen.clear()
         self.window.refresh()
+
+    def getkey(self):
+        return self.screen.getkey()

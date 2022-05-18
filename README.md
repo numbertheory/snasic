@@ -60,3 +60,14 @@ Use python-poetry to install the requirements.
    | 6            | CYAN    | 22          |
    | 7            | WHITE   | 23          |
    | 8            | GREY    | 24          |
+
+  - LOCATE [row, col]
+  Set the cursor to an arbitrary row and col on the screen. Indexed to 0. The line
+  prints at the position, and then next line prints on the next row, at the 0 column
+  position.
+
+  ```
+  LOCATE 0, 20
+  PRINT "Hello World"
+  PRINT "Another Line"
+  ```
