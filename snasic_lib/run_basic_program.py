@@ -2,17 +2,20 @@
 from snasic_lib.screen import Screen
 from snasic_lib.pad import Pad
 from snasic_lib.load_file import load_structured_basic_file
+from snasic_lib.parse import run_command
 
 
 def start_program(stdscr, args):
-    pad = Pad()
     screen = Screen(stdscr, args)
+    pad = Pad(screen)
     basic_script, numbered_lines = load_structured_basic_file(
         args.filename
     )
     while True:
-        pad.printpad("hello")
-        pad.refresh()
+        for line in basic_script:
+            if((line["command"].strip() != "") and
+               (line["command"] is not None)):
+                run_command(pad, line["command"])
         if pad.pad.getkey():
             break
     return screen

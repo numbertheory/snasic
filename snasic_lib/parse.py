@@ -8,7 +8,7 @@ def grab_command(line):
                     flags=re.IGNORECASE)[0].lower()
 
 
-def run_command(screen, line, pad=None):
+def run_command(pad, line):
     command = grab_command(line)
 
     # Don't shadow Python's print function
@@ -17,4 +17,4 @@ def run_command(screen, line, pad=None):
     # Support for the COLOR command to set a background only
     if command == "color,":
         command = "color"
-    getattr(lang, command)(screen, line)
+    getattr(lang, command)(pad, line)

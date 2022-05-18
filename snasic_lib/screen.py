@@ -10,7 +10,6 @@ class Screen:
         self.screen = stdscr
         self.end_message = "Program Ended - Press any key to exit."
         self.rows, self.cols = self.screen.getmaxyx()
-        self.visible = [''] * self.rows
         self.args = args
         self.debug = self.args.debug
         self.filename = content
