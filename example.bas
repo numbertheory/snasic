@@ -1,17 +1,37 @@
-LOCATE 1, 22
-COLOR 2
-PRINT "Hello there this is your captain speaking.1"
-SLEEP 1
-COLOR 5
-PRINT "Hello there this is your captain speaking.2"
-COLOR 7
-PRINT "Hello there this is your captain speaking.3"
-COLOR 7
-PRINT "Hello there this is your captain speaking.4"
-COLOR 8
-PRINT "Hello there this is your captain speaking.5"
-COLOR 4
-PRINT "Hello there this is your captain speaking.6"
-LOCATE 13, 13
-PRINT "Hello there this is your captain speaking.1313"
-SLEEP 1
+PRINT ""
+PRINT "| Color   | Example  | Value  |"
+PRINT "==============================="
+PRINT "|  BLACK  |          | 0      |"
+PRINT "|  RED    |          | 1      |"
+PRINT "|  GREEN  |          | 2      |"
+PRINT "| YELLOW  |          | 3      |"
+PRINT "|  BLUE   |          | 4      |"
+PRINT "| MAGENTA |          | 5      |"
+PRINT "|  CYAN   |          | 6      |"
+PRINT "|  WHITE  |          | 7      |"
+PRINT "|  GREY   |          | 8      |"
+
+COLOR 0, 1
+LOCATE 4, 11
+PRINT "          "
+COLOR 0, 2
+LOCATE 5, 11
+PRINT "          "
+COLOR 0, 3
+LOCATE 6, 11
+PRINT "          "
+COLOR 0, 4
+LOCATE 7, 11
+PRINT "          "
+COLOR 0, 5
+LOCATE 8, 11
+PRINT "          "
+COLOR 0, 6
+LOCATE 9, 11
+PRINT "          "
+COLOR 0, 7
+LOCATE 10, 11
+PRINT "          "
+COLOR 0, 8
+LOCATE 11, 11
+PRINT "          "

@@ -14,8 +14,8 @@ class Window:
         self.window.scrollok(True)
         self.window.idlok(True)
         self.active_bg = "0"
-        self.active_fg = "2"
-        self.active_color = "2,0"
+        self.active_fg = "7"
+        self.active_color = "7,0"
         self.end_message = "Program Ended - Press any key to exit."
         self.colors = color_palette.initialize_color_pairs()
 
