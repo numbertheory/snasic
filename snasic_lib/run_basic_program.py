@@ -3,7 +3,6 @@ from snasic_lib.screen import Screen
 from snasic_lib.window import Window
 from snasic_lib.load_file import load_structured_basic_file
 from snasic_lib.parse import run_command
-import curses
 
 
 def start_program(stdscr, args):
