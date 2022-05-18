@@ -10,7 +10,6 @@ def print_to_screen(pad, line):
     pad.addstr(quoted_string)
 
 
-
 def sleep(screen, line):
     try:
         sleep_amount = re.split("sleep", line, maxsplit=1,
@@ -27,7 +26,7 @@ def sleep(screen, line):
 
 
 def cls(*args):
-    args[0].clear()
+    args[0].window.erase()
     args[0].cursor_y = 0
     args[0].cursor_x = 0
 
