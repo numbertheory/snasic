@@ -19,4 +19,4 @@ def start_program(stdscr, args):
         window.end_program_message()
         if window.window.getkey():
             break
-    return screen
+    return screen, window

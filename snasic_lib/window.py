@@ -18,6 +18,7 @@ class Window:
         self.active_color = "7,0"
         self.end_message = "Program Ended - Press any key to exit."
         self.colors = color_palette.initialize_color_pairs()
+        self.basic_variables = dict()
 
     def addstr(self, content, format=curses.A_NORMAL):
         if int(self.active_fg) >= 16:

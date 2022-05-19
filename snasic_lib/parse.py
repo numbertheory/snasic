@@ -17,4 +17,6 @@ def run_command(pad, line):
     # Support for the COLOR command to set a background only
     if command == "color,":
         command = "color"
+    if "=" in line:
+        command = "assign_variable"
     getattr(lang, command)(pad, line)

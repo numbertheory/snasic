@@ -7,7 +7,30 @@ def print_to_screen(window, line):
     output_string = re.split("print", line, maxsplit=1,
                              flags=re.IGNORECASE)[1]
     quoted_string = " ".join(output_string.split('"')[1::2])
-    window.addstr(quoted_string)
+    if "$" in quoted_string:
+        vars = quoted_string.split(" ")
+        full_string = list()
+        for word in vars:
+            if "$" in word:
+                full_string.append(
+                    window.basic_variables.get(word.replace("$", ""), ""))
+            else:
+                full_string.append(word)
+        full_string = " ".join(full_string)
+    else:
+        full_string = quoted_string
+    window.addstr(full_string)
+
+
+def assign_variable(window, line):
+    value = re.split("=", line, maxsplit=1,
+                     flags=re.IGNORECASE)
+    key = value[0]
+    if value[1].isdigit():
+        var_val = int(value[1])
+    else:
+        var_val = value[1]
+    window.basic_variables[key.strip()] = " ".join(var_val.strip().split('"')[1::2])
 
 
 def sleep(window, line):

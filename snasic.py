@@ -30,9 +30,9 @@ def main(stdscr):
             python_debugger(screen, args)
 
     else:
-        screen = start_program(stdscr, args)
+        screen, window = start_program(stdscr, args)
         if screen.debug:
-            python_debugger(screen, args)
+            python_debugger(screen, args, window)
 
 
 if __name__ == '__main__':
