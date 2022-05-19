@@ -30,7 +30,9 @@ def assign_variable(window, line):
         var_val = int(value[1])
     else:
         var_val = value[1]
-    window.basic_variables[key.strip()] = " ".join(var_val.strip().split('"')[1::2])
+    window.basic_variables[key.strip()] = " ".join(
+        var_val.strip().split('"')[1::2]
+    )
 
 
 def sleep(window, line):
