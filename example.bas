@@ -1,3 +1,4 @@
 a = "r   "
+b = "celebrate"
 LOCATE 5, 5
-PRINT "a this is an r"
+PRINT "a$ b$ this is an r"
