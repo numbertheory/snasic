@@ -71,3 +71,11 @@ Use python-poetry to install the requirements.
   PRINT "Hello World"
   PRINT "Another Line"
   ```
+
+  - Variable assignment
+  Assign variables as strings or numbers
+  ```
+  a = "j"
+  b = 12
+  PRINT "b$, a$"
+  ```
